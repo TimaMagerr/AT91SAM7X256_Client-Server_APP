@@ -1,0 +1,190 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Timur Magerramov, NPCAP, LIC=1WSKC-7UBP8-YDWK5-G3TIT-WMZ3S-AR9YY
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARM.DLL V5.38.0.0
+Dialog DLL:      DARMATS.DLL V1.23.1.0
+Target DLL:      Segger\JLTAgdi.dll V1.61.0.0
+Dialog DLL:      TARMATS.DLL V1.23.1.0
+ 
+<h2>Project:</h2>
+D:\Timur\Work\My projects\AT91SAM7X256\Server\EthernetAT91SAM7X256_ACTUAL\at91sam7x-ek\basic-emac-uip-helloworld-project\uv2\at91sam7x256.uvproj
+Project File Date:  11/26/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARM_Compiler_5.06u7\Bin'
+Rebuild target 'flash-SAM-ICE'
+compiling board_lowlevel.c...
+compiling rstc.c...
+../../../at91lib/peripherals/rstc/rstc.c(54): warning:  #61-D: integer operation result is out of range
+      rmr &= ~AT91C_RSTC_KEY;
+../../../at91lib/peripherals/rstc/rstc.c(55): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(55): warning:  #68-D: integer conversion resulted in a change of sign
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(64): warning:  #61-D: integer operation result is out of range
+      unsigned int rmr = AT91C_BASE_RSTC->RSTC_RMR & (~AT91C_RSTC_KEY);
+../../../at91lib/peripherals/rstc/rstc.c(73): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(73): warning:  #68-D: integer conversion resulted in a change of sign
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(82): warning:  #61-D: integer operation result is out of range
+      unsigned int rmr = AT91C_BASE_RSTC->RSTC_RMR & (~AT91C_RSTC_KEY);
+../../../at91lib/peripherals/rstc/rstc.c(91): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(91): warning:  #68-D: integer conversion resulted in a change of sign
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(102): warning:  #61-D: integer operation result is out of range
+      rmr &= ~(AT91C_RSTC_KEY | AT91C_RSTC_ERSTL);
+../../../at91lib/peripherals/rstc/rstc.c(104): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(104): warning:  #68-D: integer conversion resulted in a change of sign
+      AT91C_BASE_RSTC->RSTC_RMR = rmr | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(113): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RCR = AT91C_RSTC_PROCRST | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(121): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RCR = AT91C_RSTC_PERRST | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c(129): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_RSTC->RSTC_RCR = AT91C_RSTC_EXTRST | RSTC_KEY_PASSWORD;
+../../../at91lib/peripherals/rstc/rstc.c: 15 warnings, 0 errors
+compiling dm9161.c...
+../../../at91lib/components/ethernet/dm9161/dm9161.c(430): warning:  #111-D: statement is unreachable
+                  goto AutoNegotiateExit;
+../../../at91lib/components/ethernet/dm9161/dm9161.c: 1 warning, 0 errors
+assembling cp15_asm_keil.s...
+compiling cp15.c...
+compiling aic.c...
+compiling tc.c...
+compiling board_memories.c...
+compiling pmc.c...
+compiling usart.c...
+compiling pio.c...
+compiling dbgu.c...
+compiling emac.c...
+../../../at91lib/peripherals/emac/emac.c(280): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_EMAC->EMAC_MAN = (AT91C_EMAC_SOF & (0x01 << 30))
+../../../at91lib/peripherals/emac/emac.c(308): warning:  #61-D: integer operation result is out of range
+      AT91C_BASE_EMAC->EMAC_MAN = (AT91C_EMAC_SOF & (0x01 << 30))
+../../../at91lib/peripherals/emac/emac.c(434): warning:  #61-D: integer operation result is out of range
+              if ((pTxTd->status & EMAC_TX_USED_BIT) == 0) {
+../../../at91lib/peripherals/emac/emac.c(434): warning:  #68-D: integer conversion resulted in a change of sign
+              if ((pTxTd->status & EMAC_TX_USED_BIT) == 0) {
+../../../at91lib/peripherals/emac/emac.c(503): warning:  #61-D: integer operation result is out of range
+          txTd.td[Index].status = EMAC_TX_USED_BIT;
+../../../at91lib/peripherals/emac/emac.c(503): warning:  #68-D: integer conversion resulted in a change of sign
+          txTd.td[Index].status = EMAC_TX_USED_BIT;
+../../../at91lib/peripherals/emac/emac.c(505): warning:  #61-D: integer operation result is out of range
+      txTd.td[TX_BUFFERS - 1].status = EMAC_TX_USED_BIT | EMAC_TX_WRAP_BIT;
+../../../at91lib/peripherals/emac/emac.c(633): warning:  #61-D: integer operation result is out of range
+      ASSERT((pTxTd->status & EMAC_TX_USED_BIT) != 0, 
+../../../at91lib/peripherals/emac/emac.c(633): warning:  #68-D: integer conversion resulted in a change of sign
+      ASSERT((pTxTd->status & EMAC_TX_USED_BIT) != 0, 
+../../../at91lib/peripherals/emac/emac.c: 9 warnings, 0 errors
+assembling board_cstartup_keil.s...
+../../../at91lib/boards/at91sam7x-ek/board_cstartup_keil.s(116): warning: A1876W: Use of '|' as a synonym for the :OR: operator is deprecated.
+compiling retarget.c...
+compiling memb.c...
+../../../external_libs/ethernet/uip/lib/memb.c(100): warning:  #68-D: integer conversion resulted in a change of sign
+    return -1;
+../../../external_libs/ethernet/uip/lib/memb.c: 1 warning, 0 errors
+compiling timer.c...
+compiling dhcpc.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../../external_libs/ethernet/uip/apps/dhcpc/dhcpc.c: 1 warning, 0 errors
+compiling psock.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../../external_libs/ethernet/uip/uip/psock.c(188): warning:  #513-D: a value of type "const char *" cannot be assigned to an entity of type "const u8_t *"
+    s->sendptr = buf;
+../../../external_libs/ethernet/uip/uip/psock.c(179): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+    PT_BEGIN(&s->psockpt);
+../../../external_libs/ethernet/uip/uip/psock.c(218): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+    PT_BEGIN(&s->psockpt);
+../../../external_libs/ethernet/uip/uip/psock.c(276): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8_t *"
+    buf_setup(&psock->buf, psock->bufptr, psock->bufsize);
+../../../external_libs/ethernet/uip/uip/psock.c(274): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+    PT_BEGIN(&psock->psockpt);
+../../../external_libs/ethernet/uip/uip/psock.c(303): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8_t *"
+    buf_setup(&psock->buf, psock->bufptr, psock->bufsize);
+../../../external_libs/ethernet/uip/uip/psock.c(301): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+    PT_BEGIN(&psock->psockpt);
+../../../external_libs/ethernet/uip/uip/psock.c(334): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8_t *"
+    buf_setup(&psock->buf, buffer, buffersize);
+../../../external_libs/ethernet/uip/uip/psock.c: 9 warnings, 0 errors
+compiling clock-arch.c...
+compiling uip_arp.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../../external_libs/ethernet/uip/uip/uip_arp.c: 1 warning, 0 errors
+compiling hello-world.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(116): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+  	PSOCK_BEGIN(&s->p);	
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(204): warning:  #940-D: missing return statement at end of non-void function "SignalTask" 
+  }
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(151): warning:  #177-D: variable "current_time"  was declared but never referenced
+  	uint16_t current_time = 0; //Òåêóùåå âðåìÿ (ìñ)
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(389): warning:  #111-D: statement is unreachable
+  	PSOCK_CLOSE(&s->p);
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(283): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "client_state"  (declared at line 284)
+            variable "pinNumb"  (declared at line 344)
+            variable "time"  (declared at line 345)
+            variable "data"  (declared at line 352)
+  	PSOCK_BEGIN(&s->p);
+  	^
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(283): warning:  #550-D: variable "PT_YIELD_FLAG"  was set but never used
+  	PSOCK_BEGIN(&s->p);
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(396): warning:  #177-D: variable "Selector"  was declared but never referenced
+  	char *Selector =
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(427): warning:  #177-D: variable "stateNumb"  was declared but never referenced
+  	char* stateNumb = "State 3: calculation";
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(430): warning:  #177-D: variable "stateSignal"  was declared but never referenced
+  	char* stateSignal = "State 4: signal";
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(22): warning:  #177-D: variable "pinPB30"  was declared but never referenced
+  static const Pin pinPB30 = PINB_30_INPUT;
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c(131): warning:  #177-D: function "fib"  was declared but never referenced
+  static int fib(struct pt *pt, int max, int* res, bool *flag) {
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c: 12 warnings, 0 errors
+compiling main.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../basic-emac-uip-helloworld-project/main.c(130): warning:  #111-D: statement is unreachable
+    return 0;
+../../basic-emac-uip-helloworld-project/main.c: 2 warnings, 0 errors
+compiling uip.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../../external_libs/ethernet/uip/uip/uip.c(1852): warning:  #177-D: label "ip_send_nolen"  was declared but never referenced
+   ip_send_nolen:
+../../../external_libs/ethernet/uip/uip/uip.c(116): warning:  #177-D: variable "all_ones_addr"  was declared but never referenced
+  static const uip_ipaddr_t all_ones_addr =
+../../../external_libs/ethernet/uip/uip/uip.c: 3 warnings, 0 errors
+compiling tapdev.c...
+../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h(104): warning:  #1295-D: Deprecated declaration selectApp - give arg types
+  void selectApp();
+../../basic-emac-uip-helloworld-project/tapdev.c: 1 warning, 0 errors
+linking...
+Program Size: Code=36184 RO-data=956 RW-data=172 ZI-data=59344  
+FromELF: creating hex file...
+After Build - User command #1: C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe --bin --output=at91sam7x256-flash.bin .\at91sam7x256-flash\at91sam7x256-flash.axf
+".\at91sam7x256-flash\at91sam7x256-flash.axf" - 0 Error(s), 56 Warning(s).
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

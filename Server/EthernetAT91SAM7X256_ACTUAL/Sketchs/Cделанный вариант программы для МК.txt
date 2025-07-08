@@ -1,0 +1,561 @@
+#include "hello-world.h"
+#include "uip.h"
+#include "stdlib.h"
+#include "string.h"
+#include "stdio.h"
+#include <stdbool.h>
+#include "tapdev.h" //Хранит MAC-адрес
+#include "timer.h"
+#include <stdint.h>
+
+
+#define PORT1 1000
+#define startPIN 28 //C этого пина начинается массив портов
+#define COUNT_PINS 3 //Кол-во пинов
+
+/*****Индикатор подключения*****/
+//Задаем определение PIN29 и PIN30: Маска, адрес, ID контроллера, тип ножки, атрибуты	
+#define PINB_29_OUTPUT {1 << 29, AT91C_BASE_PIOB, AT91C_ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}
+#define PINB_30_INPUT {1 << 30, AT91C_BASE_PIOB, AT91C_ID_PIOB, PIO_INPUT, PIO_PULLUP | PIO_DEGLITCH}
+
+static const Pin pinPB29 = PINB_29_OUTPUT;
+static const Pin pinPB30 = PINB_30_INPUT;
+
+
+static Pin pinConfigsA[COUNT_PINS] = {
+    {1 << 28, AT91C_BASE_PIOA, AT91C_ID_PIOA, PIO_OUTPUT_0, PIO_DEFAULT}, 
+    {1 << 29, AT91C_BASE_PIOA, AT91C_ID_PIOA, PIO_OUTPUT_0, PIO_DEFAULT}, 
+		{1 << 30, AT91C_BASE_PIOA, AT91C_ID_PIOA, PIO_OUTPUT_0, PIO_DEFAULT}
+};
+
+static Pin pinConfigsB[COUNT_PINS] = {
+    {1 << 28, AT91C_BASE_PIOB, AT91C_ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}, 
+    {1 << 29, AT91C_BASE_PIOB, AT91C_ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}, 
+		{1 << 30, AT91C_BASE_PIOB, AT91C_ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}
+};
+
+//Установка состояния пина
+void setPinState(Pin *pinConfigs, int pinNumber, int state);
+
+//Обработка сигнала и получение его характеристик
+signalData SignalTask(struct ethernet_state *s, int time, Pin *pinConfigs, int pinNumber);
+
+static int SignalTaskSock(struct ethernet_state *s, signalData *data, int time, Pin *pinConfigs, int pinNumber);
+
+void listen_port(void)
+{
+  /* Прослушка TCP-порта (1000-ого)  */
+  uip_listen(HTONS(PORT1));
+}
+
+// Функция для разделения строки на три части
+void parse_message(struct ethernet_state *s) {
+	char *token;
+
+	// Разделяем строку по символу ';'
+	token = strtok(s->inputBuffer, ";"); 
+	if (token != NULL) {
+			strcpy(s->port_letter, token); // Копируем букву порта
+	}
+
+	token = strtok(NULL, ";"); 
+	if (token != NULL) {
+			strcpy(s->port_number, token); // Копируем номер порта
+	}
+
+	token = strtok(NULL, ";");
+	if (token != NULL) {
+			strcpy(s->output_state, token); // Копируем состояние выхода
+	}
+}
+
+// Функция для управления состоянием пина
+void setPinState(Pin *pinConfigs, int pinNumber, int state) {
+		Pin *pin = &pinConfigs[pinNumber-startPIN]; // Получение ссылки на структуру пина
+		// Изменение типа пина в зависимости от состояния
+		if (state == 0) {
+				pin->type = PIO_OUTPUT_0; // Выходной сигнал
+		} else if (state == 1) {
+				pin->type = PIO_OUTPUT_1; // Выходной сигнал
+		} else if (state == 2) {
+				pin->type = PIO_INPUT; // Входной сигнал
+		}
+		/*
+		if(PIO_Configure(pin, 1) == 1)//Настраиваем пин
+			uip_send("Configure success! Great!", 50); 
+		else 
+			uip_send("Configure failed!", 50);
+		*/
+}
+
+signalData SignalTask(struct ethernet_state *s, int time, Pin *pinConfigs, int pinNumber){
+	/* Переменные для замера характеристик сигнала */
+	uint16_t start_rising_edge_time = 0; //Время возникновения нарастающего фронта (мс)
+	uint16_t end_falling_edge_time = 0; //Время окончания спадающего фронта (мс)
+	uint16_t current_time = 0; //Текущее время (мс)
+	uint16_t start_pulse_t = 0; //Начало импульса
+	uint16_t end_pulse_t = 0; //Конец импульса
+	uint8_t current_front_condition = 0; //Текущее состояние фронта (1 или 0)
+	uint8_t new_front_condition; //Новое состояние фронта (1 или 0)
+	uint8_t count_front_condition = 0; //Счетчик состояний фронтов
+	
+	struct timer calcTime; //Таймер для создания сигнала и времени расчета
+	signalData data = {0}; //Создаем структуру для хранения характеристики сигнала
+	timer_set(&calcTime, CLOCK_SECOND * time); //Расчетное время цикла
+	
+	while(1){
+		/*Создание прямоугольного сигнала*/
+		//rectangleSignal(&delay_timer);
+		
+		//Изменение состояния сигнала и расчет периода, частоты
+		new_front_condition = PIO_Get(&pinConfigs[pinNumber-startPIN]); //Получаем состояние сигнала
+		//current_time = clock_time(); //Фиксируем текущее время
+		
+		//Будем отправлять состояние и время
+		memset(s->sendBuffer, 0, sizeof(s->sendBuffer)); // Обнуляем весь буфер
+		snprintf(s->sendBuffer, sizeof(s->sendBuffer), "%d;%d", new_front_condition, current_time);
+		uip_send(s->sendBuffer, strlen(s->sendBuffer));
+		
+		//Cчитываем статус ножки PB30
+		if(current_front_condition == 0 && new_front_condition == 1 ){ //Нарастающий фронт 0 __/ 1
+			start_pulse_t = clock_time(); //Фиксируем начало импульса
+			count_front_condition++;
+			if(count_front_condition % 2 == 0){ //Если получили еще один нарастающий фронт - прошел период
+				end_falling_edge_time = clock_time(); //Фиксируем время
+				count_front_condition = 1; //Имеем текущий нарастающий фронт
+				data.period = (float)(end_falling_edge_time - start_rising_edge_time)/1000.0; //Расчет всех периодов для подсчета среднего (мс -> c)
+				if(data.period != 0.0){
+					data.frequency = 1.0/data.period; //Расчет всех частот для подсчета средней (Гц)
+					data.period_sum += data.period; //Добавляем период к общему подсчету периодов
+					data.frequency_sum += data.frequency; //Добавляем частоту к общему подсчету частот
+				}
+				else
+					printf("Period = 0\n");
+			}
+			start_rising_edge_time = clock_time(); //Фиксируем время начала отсчета периода
+			current_front_condition = 1; //Высокий сигнал
+		}
+			else if (current_front_condition == 1 && new_front_condition == 0){ //Понижающий фронт 1 \__ 0
+				end_pulse_t = clock_time(); //Фиксируем конец импульса
+				data.pulse_duration = (end_pulse_t - start_pulse_t)/1000.0; //Замеряем длительность импульса (мс->с)
+				data.pulse_count++; //Добавляем импульс
+				current_front_condition = 0; //Низкий сигнал
+		}	
+		if(data.period != 0 && data.pulse_duration != 0){
+			data.duty_cycle = data.period / data.pulse_duration; //Рассчитываем скважность
+			data.fill_factor = 1.0/data.duty_cycle; //Рассчитываем коэфф. заполнения
+		}
+		if (timer_expired(&calcTime))
+			break; //Завершаем функцию по окончании таймера
+	}
+	data.period_avg = data.period_sum /(float)data.pulse_count; //Средний период
+	data.frequency_avg = data.frequency_sum / (float)data.pulse_count; //Средняя частота
+	return data;
+}
+
+static int SignalTaskSock(struct ethernet_state *s, signalData *data, int time, Pin *pinConfigs, int pinNumber){
+	PSOCK_BEGIN(&s->p);
+	/* Переменные для замера характеристик сигнала */
+	uint16_t start_rising_edge_time = 0; //Время возникновения нарастающего фронта (мс)
+	uint16_t end_falling_edge_time = 0; //Время окончания спадающего фронта (мс)
+	uint16_t current_time = 0; //Текущее время (мс)
+	uint16_t start_pulse_t = 0; //Начало импульса
+	uint16_t end_pulse_t = 0; //Конец импульса
+	uint8_t current_front_condition = 0; //Текущее состояние фронта (1 или 0)
+	uint8_t new_front_condition; //Новое состояние фронта (1 или 0)
+	uint8_t count_front_condition = 0; //Счетчик состояний фронтов
+	
+	struct timer calcTime; //Таймер для создания сигнала и времени расчета
+	signalData data = {0}; //Создаем структуру для хранения характеристики сигнала
+	timer_set(&calcTime, CLOCK_SECOND * time); //Расчетное время цикла
+	
+	while(1){
+		/*Создание прямоугольного сигнала*/
+		//rectangleSignal(&delay_timer);
+		
+		//Изменение состояния сигнала и расчет периода, частоты
+		new_front_condition = PIO_Get(&pinConfigs[pinNumber-startPIN]); //Получаем состояние сигнала
+		//current_time = clock_time(); //Фиксируем текущее время
+		
+		//Будем отправлять состояние и время
+		memset(s->sendBuffer, 0, sizeof(s->sendBuffer)); // Обнуляем весь буфер
+		snprintf(s->sendBuffer, sizeof(s->sendBuffer), "%d;%d", new_front_condition, current_time);
+		PSOCK_SEND_STR(&s->p, s->sendBuffer);
+		
+		//Cчитываем статус ножки PB30
+		if(current_front_condition == 0 && new_front_condition == 1 ){ //Нарастающий фронт 0 __/ 1
+			start_pulse_t = clock_time(); //Фиксируем начало импульса
+			count_front_condition++;
+			if(count_front_condition % 2 == 0){ //Если получили еще один нарастающий фронт - прошел период
+				end_falling_edge_time = clock_time(); //Фиксируем время
+				count_front_condition = 1; //Имеем текущий нарастающий фронт
+				data.period = (float)(end_falling_edge_time - start_rising_edge_time)/1000.0; //Расчет всех периодов для подсчета среднего (мс -> c)
+				if(data.period != 0.0){
+					data.frequency = 1.0/data.period; //Расчет всех частот для подсчета средней (Гц)
+					data.period_sum += data.period; //Добавляем период к общему подсчету периодов
+					data.frequency_sum += data.frequency; //Добавляем частоту к общему подсчету частот
+				}
+				else
+					printf("Period = 0\n");
+			}
+			start_rising_edge_time = clock_time(); //Фиксируем время начала отсчета периода
+			current_front_condition = 1; //Высокий сигнал
+		}
+			else if (current_front_condition == 1 && new_front_condition == 0){ //Понижающий фронт 1 \__ 0
+				end_pulse_t = clock_time(); //Фиксируем конец импульса
+				data.pulse_duration = (end_pulse_t - start_pulse_t)/1000.0; //Замеряем длительность импульса (мс->с)
+				data.pulse_count++; //Добавляем импульс
+				current_front_condition = 0; //Низкий сигнал
+		}	
+		if(data.period != 0 && data.pulse_duration != 0){
+			data.duty_cycle = data.period / data.pulse_duration; //Рассчитываем скважность
+			data.fill_factor = 1.0/data.duty_cycle; //Рассчитываем коэфф. заполнения
+		}
+		if (timer_expired(&calcTime))
+			break; //Завершаем функцию по окончании таймера
+	}
+	data.period_avg = data.period_sum /(float)data.pulse_count; //Средний период
+	data.frequency_avg = data.frequency_sum / (float)data.pulse_count; //Средняя частота
+	PSOCK_SEND_STR(&s->p,"END"); //Отправляем сообщение, что работа с сигналом завершена
+	memset(s->sendBuffer, 0, sizeof(s->sendBuffer)); // Обнуляем весь буфер
+	snprintf(s->sendBuffer, sizeof(s->sendBuffer),"period: %f s\nperiod_avg: %f s\nfrequency: %f Hz\nfrequency_avg: %f Hz\n"
+					"duty cycle: %f s\nfill factor: %f s\n"
+					"pulse count: %d\npulse duration: %f s\n",
+					data.period, data.period_avg, data.frequency, data.frequency_avg,
+					data.duty_cycle, data.fill_factor,
+					data.pulse_count, data.pulse_duration); //Переводим данные в символы
+	PSOCK_SEND_STR(&s->p, s->sendBuffer);
+	PSOCK_CLOSE(&s->p);
+	PSOCK_END(&s->p);
+}
+
+void dataSendSignalTask(struct ethernet_state *s, int portNumber, signalData data){
+	memset(s->sendBuffer, 0, sizeof(s->sendBuffer)); // Обнуляем весь буфер
+	snprintf(s->sendBuffer, sizeof(s->sendBuffer),"period: %f s\nperiod_avg: %f s\nfrequency: %f Hz\nfrequency_avg: %f Hz\n"
+					"duty cycle: %f s\nfill factor: %f s\n"
+					"pulse count: %d\npulse duration: %f s\n",
+					data.period, data.period_avg, data.frequency, data.frequency_avg,
+					data.duty_cycle, data.fill_factor,
+					data.pulse_count, data.pulse_duration); //Переводим данные в символы
+	uip_send(s->sendBuffer, strlen(s->sendBuffer)); //Отправляем данные
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+int rectangleSignal(struct timer *timer){
+	if(timer_expired(timer)){
+		//Если установлен высокий сигнал
+		if(PIO_Get(&pinPB29) == 1){
+			PIO_Clear(&pinPB29); //Ставим низкий
+			printf("PB29: Low - %d\n", PIO_Get(&pinPB29));
+		} else{ //Если низкий, то наоборот - ставим высокий
+			PIO_Set(&pinPB29);
+			printf("PB29: High - %d\n", PIO_Get(&pinPB29));
+		}
+		timer_reset(timer);
+	}
+	return PIO_Get(&pinPB29);
+}
+
+//Информация о проекте и плате
+void infoAbout(struct ethernet_state *s, char message[]){
+	
+	uip_send(message, strlen(message));
+}
+
+int charToInt(struct ethernet_state *s){
+	//Очищаем буфер под принимаемое число
+	memset(s->inputBuffer, 0, sizeof(s->inputBuffer)); // Обнуляем весь буфер
+	//Принимаем данные
+	char *data = (char*)uip_appdata; //data указывает на действительные данные
+	int len = uip_datalen(); //Определяем переменную длины для удобства
+	strncpy(s->inputBuffer, data, len); //Копируем данные в буфер received_number
+	int number = atoi(s->inputBuffer); //Переводим символы в число
+	return number;
+}
+
+void recvMessage(struct ethernet_state *s){
+	//Очищаем буфер под принимаемое число
+	memset(s->inputBuffer, 0, sizeof(s->inputBuffer)); // Обнуляем весь буфер
+	//Принимаем данные
+	char *data = (char*)uip_appdata; //data указывает на действительные данные
+	int len = uip_datalen(); //Определяем переменную длины для удобства
+	strncpy(s->inputBuffer, data, len); //Копируем данные в буфер 
+	//printf("%s", s->inputBuffer);
+}
+
+//Принимаем число, удваиваем и отправляем обратно 
+void doubleNumber(struct ethernet_state *s, char* state){
+	printf("%s\n", state);
+	int number = charToInt(s);
+	//Работа с числом
+	int doubleNumber = number * 2; //Увеличиваем полученное значение в два раза
+	char response[10];
+	sprintf(response, "%d", doubleNumber); //Помещаем число в символьный массив
+	uip_send(response, strlen(response)); //Отправляем число
+	printf("Send data\n");
+}
+
+static int handle_connection(struct ethernet_state *s)
+{/*
+  PSOCK_BEGIN(&s->p);
+	struct timer timerToSend;
+	timer_set(&timerToSend, CLOCK_SECOND * 5); // Устанавливаем таймер на 5 секунд
+	
+	while(true){
+		if (timer_expired(&timerToSend)) { 
+      PSOCK_SEND_STR(&s->p, "Hello. What is your name?\n");
+      timer_restart(&timerToSend); // Перезапускаем таймер для следующей отправки
+			printf("Send mess\n");
+		}
+	}
+	PSOCK_CLOSE(&s->p);
+  PSOCK_END(&s->p);
+	*/
+	 PSOCK_BEGIN(&s->p);
+  PSOCK_SEND_STR(&s->p, "Hello. What is your name?\n");
+  PSOCK_READTO(&s->p, '\n');
+  strncpy(s->sendBuffer, s->sockBuffer, sizeof(s->sendBuffer));
+  PSOCK_SEND_STR(&s->p, "Hello ");
+  PSOCK_SEND_STR(&s->p, s->sendBuffer);
+  PSOCK_CLOSE(&s->p);
+  PSOCK_END(&s->p);
+}
+
+void selectApp(){
+	
+	//Строка-селектор
+	char *Selector =
+		"1. Find out the status of the device (what kind of device, etc.)\n"
+		"2. Info about date\n"
+		"3. Calculation (double value)\n"
+		"4. Info about signal\n";
+	/*Будет отдельный поток, который активирует ножки МК и анализирует сигнал
+		Проанализировав сигнал (в течение 10 с, например), можно будет выбрать,
+		что делать дальше*/
+	
+	
+	//Сообщение для первого выбора в селекторе
+	char message_board[256];
+	sprintf(message_board,
+	//Комплектуем все сообщение в одну переменную
+	"-- EMAC uIP Project %s --\n\r" 
+	"-- BOARD: %s\n\r"
+	" - MAC %02x:%02x:%02x:%02x:%02x:%02x\n\n" 
+	"Frequency of generator: %d",
+	SOFTPACK_VERSION, 
+	BOARD_NAME, 
+	MacAddress.addr[0], MacAddress.addr[1], MacAddress.addr[2],
+	MacAddress.addr[3], MacAddress.addr[4], MacAddress.addr[5],
+	BOARD_MAINOSC);
+	
+	//Сообщение для второго выбора в селекторе
+	char message_project[256];
+	sprintf(message_project,
+	"-- Compiled: %s %s --",
+	__DATE__, __TIME__);
+	
+	//Сообщение для третьего выбора в селекторе
+	char* stateNumb = "State 3: calculation";
+	
+	//Сообщение для четвертого выбора в селекторе
+	char* stateSignal = "State 4: signal";
+	
+	//Создаем экземпляр структуры для хранения состояний подключения
+	struct ethernet_state *s = &(uip_conn->appstate);
+	
+	//Конфигурируем пины и отправляем их состояние клиенту
+	if(uip_connected()) {
+		PSOCK_INIT(&s->p, s->sockBuffer, sizeof(s->sockBuffer));
+		printf("Client connection success\n");
+		//Включаем лампочку
+		Pin Led_Conn_Indicator = LED_IND_ON;
+		PIO_Configure(&Led_Conn_Indicator, 1);
+		/*
+		//Конфигурируем ПИНы по умолчанию на выход с 0
+		int i;
+		for(i = 0; i < COUNT_PINS; i++){
+			setPinState(pinConfigsA, startPIN+i, 0);
+			setPinState(pinConfigsB, startPIN+i, 0);
+		}
+		
+		if(PIO_Configure(pinConfigsA, COUNT_PINS) == 1 && PIO_Configure(pinConfigsB, COUNT_PINS) == 1)
+			uip_send("Welcome! PINs are configured in the starting positions!", 55);
+		else
+			uip_send("Welcome! PINs are not configured in the starting positions!", 80);
+		s->state = WELCOME_SENT;
+		*/
+	} 
+	
+	//Подключение подтверждено - переход в следующее состояние
+	if(uip_acked() && s->state == WELCOME_SENT) {
+		s->state = WELCOME_ACKED;
+	}
+	//Состояние NUMBER_RECEIVED, где вызывается функция удвоения и отправки числа - 3
+	if(uip_newdata() && s->state == NUMBER_RECEIVED){
+		doubleNumber(s, stateNumb);
+		s->state = NEUTRAL;		
+	} //Состояние SIGNAL_INFO, где производится обработка сигнала - 4
+	else if(uip_newdata() && s->state == SIGNAL_INFO){
+		//Очищаем буферы 
+		memset(s->port_letter, 0, sizeof(s->port_letter)); // Обнуляем весь буфер
+		memset(s->port_number, 0, sizeof(s->port_number)); // Обнуляем весь буфер
+		memset(s->output_state, 0, sizeof(s->output_state)); // Обнуляем весь буфер
+		
+		recvMessage(s);
+		
+		//Разбиваем сообщение на 3 переменные
+		parse_message(s);
+		
+		int portNumb = atoi(s->port_number); //Переводим символ номера порта в число 
+		int time = atoi(s->output_state); //В данном случае получаем время после второго символа ;
+			
+		signalData *data = {0};
+		
+		if(s->port_letter[0] == 'A'){
+			SignalTaskSock(s, data, time, pinConfigsA, portNumb);
+			//signalData data = SignalTask(s, time, pinConfigsA, portNumb);
+			//uip_send("END", 10); //Отправляем сообщение, что работа с сигналом завершена
+			//dataSendSignalTask(s, portNumb, data); //И отправляем рассчитанные характеристики сигнала
+		}
+		else if(s->port_letter[0] == 'B'){
+			SignalTaskSock(s, data, time, pinConfigsA, portNumb);
+			//signalData data = SignalTask(s, time, pinConfigsB, portNumb);
+			//uip_send("END", 10); //Отправляем сообщение, что работа с сигналом завершена
+			//dataSendSignalTask(s, portNumb, data); //И отправляем рассчитанные характеристики сигнала
+		}
+		s->state = NEUTRAL; //Переходим в нейтральное состояние после выполнения функции
+	}
+	//Состояние PIN_CONF, где производится настройка PIN-a - 5
+	else if(uip_newdata() && s->state == PIN_CONF){
+		//Очищаем буферы 
+		memset(s->port_letter, 0, sizeof(s->port_letter)); // Обнуляем весь буфер
+		memset(s->port_number, 0, sizeof(s->port_number)); // Обнуляем весь буфер
+		memset(s->output_state, 0, sizeof(s->output_state)); // Обнуляем весь буфер
+		
+		//Принимаем данные во входной буфер
+		recvMessage(s);
+		
+		//Разбиваем сообщение на 3 переменные
+		parse_message(s);
+		
+		int portNumb = atoi(s->port_number); //Переводим символ номера порта в число 
+		int outputState = atoi(s->output_state); //Переводим символ номера состояния в число
+		
+		//Проверяем, порт A или порт В
+		if(s->port_letter[0] == 'A'){
+			setPinState(pinConfigsA, portNumb, outputState); //и корректируем PIN с дальнейшей конфигурацией
+		}
+		else if(s->port_letter[0] == 'B'){
+			setPinState(pinConfigsB, portNumb, outputState);
+		}
+		s->state = NEUTRAL; //Переходим в нейтральное состояние после выполнения функции
+	}
+	else{
+		//Получение данных
+		if(uip_newdata()) {;
+			//Принимаем данные
+			int number = charToInt(s); //Переводим символы в число
+			switch(number){
+			
+			//Информация о плате и проекте
+			case 1:
+				s->state = INFO_BOARD;
+				printf("State 1: Info about board\n");
+				infoAbout(s, message_board); //Функция вывода информации о плате и проекте
+				s->state = NEUTRAL; //Переходим в нейтральное состояние после выполнения функции
+				break;
+
+			//Информация о дате
+			case 2:
+				s->state = INFO_DATE;
+				printf("State 2: Info about date\n");
+				infoAbout(s, message_project); //Функция вывода информации о дате;
+				s->state = NEUTRAL; //Переходим в нейтральное состояние после выполнения функции
+				break;
+			
+			//Работа с числом
+			case 3:
+				s->state = NUMBER_RECEIVED;
+				printf("State 3: calculation");
+				//uip_send("Put number for increase\nBack to menu - 0\n", 50);
+				break;
+			
+			//Работа с сигналом
+			case 4:
+				s->state = SIGNAL_INFO;
+				printf("State 4: signal");
+				break;
+			
+			//Работа с сигналом
+			case 5:
+				s->state = PIN_CONF;
+				printf("State 5: PIN configure");
+				break;
+			
+			//Работа с сигналом
+			case 6:
+				s->state = MANY_SEND;
+				printf("State 6: many send");
+				handle_connection(s);
+				s->state = NEUTRAL;
+				break;
+			/*
+			case 0:
+				s->state = CLASSIC_CONFIG;
+				//Конфигурируем ПИНы по умолчанию на выход с 0
+				int i;
+				for(i = 0; i < COUNT_PINS; i++){
+					setPinState(pinConfigsA, startPIN+i, 0);
+					setPinState(pinConfigsB, startPIN+i, 0);
+				}
+				s->state = NEUTRAL;
+				break;
+			*/
+			}			
+		}
+	}		
+
+	if(uip_rexmit()) {
+		switch(s->state) {
+			case WELCOME_SENT:
+				uip_send("Welcome stage is not ok!\nWELCOME_SENT", 50);
+			break;
+			
+			case WELCOME_ACKED:
+				uip_send("Acked stage is not ok!\nWELCOME_ACKED", 50);
+			break;
+			
+			case INFO_BOARD:
+				uip_send("Problems with info about board\nINFO_BOARD", 50);
+			break;
+			
+			case INFO_DATE:
+				uip_send("Problems with info about date\nINFO_DATE", 50);
+			break;
+			
+			case NUMBER_RECEIVED:
+				uip_send("Put number for increase\nBack to menu - 0\n", 50);
+			break;
+			
+			case SIGNAL_INFO:
+				uip_send("Problems with signal info SIGNAL_INFO", 80);
+			break;
+			
+			case PIN_CONF:
+				uip_send("Problems with send PIN_CONF", 50);
+			break;
+			
+			case CLASSIC_CONFIG:
+				uip_send("Try again\nCLASSIC_CONFIG", 30);
+			break;
+			
+			case MANY_SEND:
+				uip_send("Try again\nMANY_SEND", 30);
+			break;
+			
+			case NEUTRAL:
+				uip_send("Try again\nNEUTRAL", 30);
+			break;
+		}
+  }
+}

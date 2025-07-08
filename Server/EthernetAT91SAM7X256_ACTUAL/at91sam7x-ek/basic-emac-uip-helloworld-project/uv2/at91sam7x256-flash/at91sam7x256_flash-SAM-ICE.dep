@@ -1,0 +1,255 @@
+Dependencies for Project 'at91sam7x256', Target 'flash-SAM-ICE': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_5.06u7
+F (../../../at91lib/components/ethernet/dm9161/dm9161.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\dm9161.o --depend .\at91sam7x256-flash\dm9161.d)
+I (../../../at91lib/components/ethernet/dm9161/dm9161.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/components/ethernet/dm9161/dm9161_define.h)(0x673DADE1)
+I (../../../at91lib/peripherals/rstc/rstc.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+F (../../../at91lib/peripherals/aic/aic.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\aic.o --depend .\at91sam7x256-flash\aic.d)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/cp15/cp15.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\cp15.o --depend .\at91sam7x256-flash\cp15.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/dbgu/dbgu.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\dbgu.o --depend .\at91sam7x256-flash\dbgu.d)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdarg.h)(0x5E8E8312)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/emac/emac.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\emac.o --depend .\at91sam7x256-flash\emac.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+F (../../../at91lib/peripherals/pio/pio.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\pio.o --depend .\at91sam7x256-flash\pio.d)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/pmc/pmc.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\pmc.o --depend .\at91sam7x256-flash\pmc.d)
+I (../../../at91lib/peripherals/pmc/pmc.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+F (../../../at91lib/peripherals/rstc/rstc.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\rstc.o --depend .\at91sam7x256-flash\rstc.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/tc/tc.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\tc.o --depend .\at91sam7x256-flash\tc.d)
+I (../../../at91lib/peripherals/tc/tc.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/peripherals/usart/usart.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\usart.o --depend .\at91sam7x256-flash\usart.d)
+I (../../../at91lib/peripherals/usart/usart.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+F (../../../at91lib/peripherals/cp15/cp15_asm_keil.s)(0x673DADE1)(--cpu ARM7TDMI -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X--pd "__UVISION_VERSION SETA 538"-o .\at91sam7x256-flash\cp15_asm_keil.o --depend .\at91sam7x256-flash\cp15_asm_keil.d)
+F (../../../at91lib/boards/at91sam7x-ek/board_lowlevel.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\board_lowlevel.o --depend .\at91sam7x256-flash\board_lowlevel.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board_memories.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pmc/pmc.h)(0x673DADE1)
+F (../../../at91lib/boards/at91sam7x-ek/board_memories.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\board_memories.o --depend .\at91sam7x256-flash\board_memories.d)
+I (../../../at91lib/boards/at91sam7x-ek/board_memories.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+F (../../../at91lib/boards/at91sam7x-ek/board_cstartup_keil.s)(0x673DADE1)(--cpu ARM7TDMI -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X--pd "__UVISION_VERSION SETA 538"-o .\at91sam7x256-flash\board_cstartup_keil.o --depend .\at91sam7x256-flash\board_cstartup_keil.d)
+F (../../../at91lib/utility/retarget.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\retarget.o --depend .\at91sam7x256-flash\retarget.d)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+F (../../../external_libs/ethernet/uip/apps/dhcpc/dhcpc.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\dhcpc.o --depend .\at91sam7x256-flash\dhcpc.d)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/apps/dhcpc/dhcpc.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c)(0x686CF83F)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\hello-world.o --depend .\at91sam7x256-flash\hello-world.d)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdlib.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdbool.h)(0x5E8E8312)
+I (../../basic-emac-uip-helloworld-project/tapdev.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/usart/usart.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/components/ethernet/dm9161/dm9161.h)(0x673DADE1)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/uip_arp.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/lib/memb.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\memb.o --depend .\at91sam7x256-flash\memb.d)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/lib/memb.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/uip/psock.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\psock.o --depend .\at91sam7x256-flash\psock.d)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/uip/timer.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\timer.o --depend .\at91sam7x256-flash\timer.d)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/uip/uip.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\uip.o --depend .\at91sam7x256-flash\uip.d)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip_arch.h)(0x673DADE2)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\INC\Atmel\SAM7X\AT91SAM7X256.h)(0x559D213A)
+I (../../basic-emac-uip-helloworld-project/tapdev.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/usart/usart.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/components/ethernet/dm9161/dm9161.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/uip_arp.h)(0x673DADE2)
+F (../../../external_libs/ethernet/uip/uip/uip_arp.c)(0x673DADE2)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\uip_arp.o --depend .\at91sam7x256-flash\uip_arp.d)
+I (../../../external_libs/ethernet/uip/uip/uip_arp.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+F (../../basic-emac-uip-helloworld-project/clock-arch.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\clock-arch.o --depend .\at91sam7x256-flash\clock-arch.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/peripherals/tc/tc.h)(0x673DADE1)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+F (../../basic-emac-uip-helloworld-project/main.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\main.o --depend .\at91sam7x256-flash\main.d)
+I (../../basic-emac-uip-helloworld-project/tapdev.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/usart/usart.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/components/ethernet/dm9161/dm9161.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip_arp.h)(0x673DADE2)
+F (../../basic-emac-uip-helloworld-project/tapdev.c)(0x673DADE1)(-c --cpu ARM7TDMI -D__MICROLIB -g -O0 --apcs=interwork -I ../../../at91lib/peripherals -I ../../basic-emac-uip-helloworld-project -I ../../../at91lib -I ../../../at91lib/components -I ../../../at91lib/utility -I ../../../external_libs/ethernet/uip/uip -I ../../../external_libs/ethernet/uip/lib -I ../../../external_libs/ethernet/uip/apps/hello-world -I ../../../external_libs/ethernet/uip/apps/dhcpc -I ../../../at91lib/boards/at91sam7x-ek --gnu-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\INC\Atmel\SAM7X-D__UVISION_VERSION="538" -Dat91sam7x256 -Dflash -DNOFPUT-o .\at91sam7x256-flash\tapdev.o --depend .\at91sam7x256-flash\tapdev.d)
+I (../../../at91lib/boards/at91sam7x-ek/board.h)(0x673DADE1)
+I (../../../at91lib/boards/at91sam7x-ek/at91sam7x256/AT91SAM7X256.h)(0x673DADE1)
+I (../../../at91lib/peripherals/pio/pio.h)(0x673DADE1)
+I (../../../at91lib/peripherals/aic/aic.h)(0x673DADE1)
+I (../../../at91lib/peripherals/dbgu/dbgu.h)(0x673DADE1)
+I (../../../at91lib/peripherals/usart/usart.h)(0x673DADE1)
+I (../../../at91lib/peripherals/emac/emac.h)(0x673DADE1)
+I (../../../at91lib/components/ethernet/dm9161/dm9161.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\string.h)(0x5E8E8312)
+I (../../../at91lib/utility/trace.h)(0x673DADE1)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdio.h)(0x5E8E8312)
+I (../../../at91lib/utility/assert.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/uip.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/uipopt.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/uip-conf.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/apps/hello-world/hello-world.h)(0x686BB84F)
+I (../../../external_libs/ethernet/uip/uip/pt.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/lc-switch.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/timer.h)(0x673DADE2)
+I (../../../external_libs/ethernet/uip/uip/clock.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/clock-arch.h)(0x673DADE1)
+I (../../../external_libs/ethernet/uip/uip/psock.h)(0x673DADE2)
+I (C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include\stdint.h)(0x5E8E8312)
+I (../../../external_libs/ethernet/uip/uip/uip_arp.h)(0x673DADE2)
+I (../../basic-emac-uip-helloworld-project/tapdev.h)(0x673DADE1)

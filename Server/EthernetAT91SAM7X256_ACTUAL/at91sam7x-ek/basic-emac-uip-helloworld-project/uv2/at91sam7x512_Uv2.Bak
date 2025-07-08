@@ -1,0 +1,403 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (flash-SAM-ICE), 0x0004 // Tools: 'ARM-ADS'
+Target (sram-SAM-ICE), 0x0004 // Tools: 'ARM-ADS'
+Target (flash-ULINK), 0x0004 // Tools: 'ARM-ADS'
+Target (sram-ULINK), 0x0004 // Tools: 'ARM-ADS'
+
+Group (at91lib)
+Group (external_libs)
+Group (basic-emac-uip-helloworld-project)
+
+File 1,1,<../../../at91lib/components/ethernet/dm9161/dm9161.c><dm9161.c>
+File 1,1,<../../../at91lib/peripherals/aic/aic.c><aic.c>
+File 1,1,<../../../at91lib/peripherals/cp15/cp15.c><cp15.c>
+File 1,1,<../../../at91lib/peripherals/dbgu/dbgu.c><dbgu.c>
+File 1,1,<../../../at91lib/peripherals/emac/emac.c><emac.c>
+File 1,1,<../../../at91lib/peripherals/pio/pio.c><pio.c>
+File 1,1,<../../../at91lib/peripherals/pmc/pmc.c><pmc.c>
+File 1,1,<../../../at91lib/peripherals/rstc/rstc.c><rstc.c>
+File 1,1,<../../../at91lib/peripherals/tc/tc.c><tc.c>
+File 1,1,<../../../at91lib/peripherals/usart/usart.c><usart.c>
+File 1,2,<../../../at91lib/peripherals/cp15/cp15_asm_keil.s><cp15_asm_keil.s>
+File 1,1,<../../../at91lib/boards/at91sam7x-ek/board_lowlevel.c><board_lowlevel.c>
+File 1,1,<../../../at91lib/boards/at91sam7x-ek/board_memories.c><board_memories.c>
+File 1,2,<../../../at91lib/boards/at91sam7x-ek/board_cstartup_keil.s><board_cstartup_keil.s>
+File 1,1,<../../../at91lib/utility/retarget.c><retarget.c>
+File 2,1,<../../../external_libs/ethernet/uip/apps/dhcpc/dhcpc.c><dhcpc.c>
+File 2,1,<../../../external_libs/ethernet/uip/apps/hello-world/hello-world.c><hello-world.c>
+File 2,1,<../../../external_libs/ethernet/uip/lib/memb.c><memb.c>
+File 2,1,<../../../external_libs/ethernet/uip/uip/psock.c><psock.c>
+File 2,1,<../../../external_libs/ethernet/uip/uip/timer.c><timer.c>
+File 2,1,<../../../external_libs/ethernet/uip/uip/uip.c><uip.c>
+File 2,1,<../../../external_libs/ethernet/uip/uip/uip_arp.c><uip_arp.c>
+File 3,1,<../../basic-emac-uip-helloworld-project/clock-arch.c><clock-arch.c>
+File 3,1,<../../basic-emac-uip-helloworld-project/main.c><main.c>
+File 3,1,<../../basic-emac-uip-helloworld-project/tapdev.c><tapdev.c>
+
+
+Options 1,0,0  // Target 'flash-SAM-ICE'
+ Device (at91sam7x512)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x21FFFF) IROM(0x100000-0x17FFFF) CLOCK(18432000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID ()
+ Rgf (at91sam7x512.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (Atmel\SAM7X\)
+ OrgReg (Atmel\SAM7X\)
+ TgStat=16
+ OutDir (.\at91sam7x512-flash\)
+ OutName (at91sam7x512-flash)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\at91sam7x512-flash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <fromelf.exe --bin -o  $L@L.bin #L>
+
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--gnu)
+ ADSCDEFN (at91sam7x512 flash NOFPUT )
+ ADSCUDEF ()
+ ADSCINCD (../../../at91lib/peripherals,../../basic-emac-uip-helloworld-project,../../../at91lib,../../../at91lib/components,../../../at91lib/utility,../../../external_libs/ethernet/uip/uip,../../../external_libs/ethernet/uip/lib,../../../external_libs/ethernet/uip/apps/hello-world,../../../external_libs/ethernet/uip/apps/dhcpc,../../../at91lib/boards/at91sam7x-ek)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (../../../at91lib/boards/at91sam7x-ek/at91sam7x512/flash.sct)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry resetHandler)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM7X)(DARMATS.DLL)(-p91SAM7X512)(SARM.DLL)()(TARMATS.DLL)(-p91SAM7X512)
+  OPTDBG 48638,6,()()()()()()()()()() (Segger\JLTAgdi.dll)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (Segger\JLTAgdi.dll)
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'sram-SAM-ICE'
+ Device (at91sam7x512)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x21FFFF) IROM(0x100000-0x17FFFF) CLOCK(18432000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID ()
+ Rgf (at91sam7x512.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (Atmel\SAM7X\)
+ OrgReg (Atmel\SAM7X\)
+ TgStat=16
+ OutDir (.\at91sam7x512-sram\)
+ OutName (at91sam7x512-sram)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\at91sam7x512-sram\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <fromelf.exe --bin -o  $L@L.bin #L>
+
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--gnu)
+ ADSCDEFN (at91sam7x512 sram NOFPUT )
+ ADSCUDEF ()
+ ADSCINCD (../../../at91lib/peripherals,../../basic-emac-uip-helloworld-project,../../../at91lib,../../../at91lib/components,../../../at91lib/utility,../../../external_libs/ethernet/uip/uip,../../../external_libs/ethernet/uip/lib,../../../external_libs/ethernet/uip/apps/hello-world,../../../external_libs/ethernet/uip/apps/dhcpc,../../../at91lib/boards/at91sam7x-ek)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (../../../at91lib/boards/at91sam7x-ek/at91sam7x512/sram.sct)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry resetHandler)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM7X)(DARMATS.DLL)(-p91SAM7X512)(SARM.DLL)()(TARMATS.DLL)(-p91SAM7X512)
+  OPTDBG 48638,6,()()()()()()()()()(../../../resources/keil/at91sam7x-ek-sram.ini) (Segger\JLTAgdi.dll)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (Segger\JLTAgdi.dll)
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+
+Options 3,0,0  // Target 'flash-ULINK'
+ Device (at91sam7x512)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x21FFFF) IROM(0x100000-0x17FFFF) CLOCK(18432000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID ()
+ Rgf (at91sam7x512.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (Atmel\SAM7X\)
+ OrgReg (Atmel\SAM7X\)
+ TgStat=16
+ OutDir (.\at91sam7x512-flash\)
+ OutName (at91sam7x512-flash)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\at91sam7x512-flash\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <fromelf.exe --bin -o  $L@L.bin #L>
+
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--gnu)
+ ADSCDEFN (at91sam7x512 flash NOFPUT )
+ ADSCUDEF ()
+ ADSCINCD (../../../at91lib/peripherals,../../basic-emac-uip-helloworld-project,../../../at91lib,../../../at91lib/components,../../../at91lib/utility,../../../external_libs/ethernet/uip/uip,../../../external_libs/ethernet/uip/lib,../../../external_libs/ethernet/uip/apps/hello-world,../../../external_libs/ethernet/uip/apps/dhcpc,../../../at91lib/boards/at91sam7x-ek)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (../../../at91lib/boards/at91sam7x-ek/at91sam7x512/flash.sct)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry resetHandler)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM7X)(DARMATS.DLL)(-p91SAM7X512)(SARM.DLL)()(TARMATS.DLL)(-p91SAM7X512)
+  OPTDBG 48638,6,()()()()()()()()()() (BIN\UL2ARM.dll)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.dll)
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+
+Options 4,0,0  // Target 'sram-ULINK'
+ Device (at91sam7x512)
+ Vendor (Atmel)
+ Cpu (IRAM(0x200000-0x21FFFF) IROM(0x100000-0x17FFFF) CLOCK(18432000) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID ()
+ Rgf (at91sam7x512.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (Atmel\SAM7X\)
+ OrgReg (Atmel\SAM7X\)
+ TgStat=16
+ OutDir (.\at91sam7x512-sram\)
+ OutName (at91sam7x512-sram)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=0
+ LstDir (.\at91sam7x512-sram\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <fromelf.exe --bin -o  $L@L.bin #L>
+
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 242,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP (ARM7TDMI)
+ RVDEV ()
+ ADSTFLGA { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSIROM { 1,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC (--gnu)
+ ADSCDEFN (at91sam7x512 sram NOFPUT )
+ ADSCUDEF ()
+ ADSCINCD (../../../at91lib/peripherals,../../basic-emac-uip-helloworld-project,../../../at91lib,../../../at91lib/components,../../../at91lib/utility,../../../external_libs/ethernet/uip/uip,../../../external_libs/ethernet/uip/lib,../../../external_libs/ethernet/uip/apps/hello-world,../../../external_libs/ethernet/uip/apps/dhcpc,../../../at91lib/boards/at91sam7x-ek)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA ()
+ ADSLDDA ()
+ ADSLDSC (../../../at91lib/boards/at91sam7x-ek/at91sam7x512/sram.sct)
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC (--entry resetHandler)
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARM.DLL)(-cAT91SAM7X)(DARMATS.DLL)(-p91SAM7X512)(SARM.DLL)()(TARMATS.DLL)(-p91SAM7X512)
+  OPTDBG 48638,6,()()()()()()()()()(../../../resources/keil/at91sam7x-ek-sram.ini) (BIN\UL2ARM.dll)()()()
+ FLASH1 { 1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (BIN\UL2ARM.dll)
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+
