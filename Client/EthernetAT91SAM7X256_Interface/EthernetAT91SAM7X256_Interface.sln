@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EthernetAT91SAM7X256_Interface", "EthernetAT91SAM7X256_Interface\EthernetAT91SAM7X256_Interface.vcxproj", "{324C961F-F593-4C77-9965-ED283065895C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{324C961F-F593-4C77-9965-ED283065895C}.Debug|x64.ActiveCfg = Debug|x64
+		{324C961F-F593-4C77-9965-ED283065895C}.Debug|x64.Build.0 = Debug|x64
+		{324C961F-F593-4C77-9965-ED283065895C}.Debug|x86.ActiveCfg = Debug|Win32
+		{324C961F-F593-4C77-9965-ED283065895C}.Debug|x86.Build.0 = Debug|Win32
+		{324C961F-F593-4C77-9965-ED283065895C}.Release|x64.ActiveCfg = Release|x64
+		{324C961F-F593-4C77-9965-ED283065895C}.Release|x64.Build.0 = Release|x64
+		{324C961F-F593-4C77-9965-ED283065895C}.Release|x86.ActiveCfg = Release|Win32
+		{324C961F-F593-4C77-9965-ED283065895C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD1797A0-BB13-4895-867D-D54AA439C2E0}
+	EndGlobalSection
+EndGlobal

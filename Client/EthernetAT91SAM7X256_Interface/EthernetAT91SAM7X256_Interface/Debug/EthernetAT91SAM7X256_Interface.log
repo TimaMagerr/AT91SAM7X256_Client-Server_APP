@@ -1,0 +1,4 @@
+﻿  interface_functions.cpp
+D:\Timur\Work\My projects\AT91SAM7X256\Client\EthernetAT91SAM7X256_Interface\EthernetAT91SAM7X256_Interface\interface_functions.cpp(399,45): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  functions.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  EthernetAT91SAM7X256_Interface.vcxproj -> D:\Timur\Work\My projects\AT91SAM7X256\Client\EthernetAT91SAM7X256_Interface\Debug\EthernetAT91SAM7X256_Interface.exe
